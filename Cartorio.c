@@ -113,7 +113,7 @@ int main(){
 		printf("Escolha a opção desejada do menu:\n\n"); 
 		printf("\t1 - Registrar nomes \n");
 		printf("\t2 - Consultar nomes \n");
-		printf("\t3 - Deletar nomes \n\n"); 
+		printf("\t3 - Deletar nomes \n"); 
 		printf("\t4 - Sair do sistema \n\n");
 		printf("Opcao: "); //fim do menu
 		
@@ -124,6 +124,28 @@ int main(){
 		switch(opcao){
 			case 1:
 				registrar();
+				
+				int decisaoRegistro=0;
+				
+				printf("\n\nDeseja registrar mais um usuário?\n\n"); //inicio do menu
+				printf("\t1 - Sim\n");
+				printf("\t2 - Voltar para o menu principal\n");
+				printf("Opcao: "); //fim do menu
+	
+				scanf("%d", &decisaoRegistro);
+				
+				switch(decisaoRegistro){
+					case 1:
+						registrar();
+						break;
+						
+					case 2:
+						break;
+					
+					default:
+						printf("esta opcao nao esta disponivel\n");
+						system("pause");
+				}
 				break;
 			
 			case 2:
