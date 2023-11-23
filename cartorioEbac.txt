@@ -1,0 +1,46 @@
+CREATE TABLE usuarios(
+      cpf INTEGER,
+      nome VARCHAR(50),
+      sobrenome VARCHAR(50),
+      cargo VARCHAR(50),
+      curso_id INTEGER
+);
+
+CREATE TABLE cursos(
+      id INTEGER,
+      nome_curso VARCHAR(50),
+      professor VARCHAR(50),
+      categoria VARCHAR(50)
+);
+
+INSERT INTO usuarios (cpf,nome,sobrenome,cargo,curso_id)
+VALUES ('123','Ana', 'Beatriz','estudante','1');
+
+INSERT INTO usuarios (cpf,nome,sobrenome,cargo,curso_id)
+VALUES ('456','Carlos', 'Daniel','estudante','1');
+
+INSERT INTO usuarios (cpf,nome,sobrenome,cargo,curso_id)
+VALUES ('789','Eva', 'Fiord','estudante','1');
+
+INSERT INTO usuarios (cpf,nome,sobrenome,cargo,curso_id)
+VALUES ('101','Gerson', 'Hades','estudante','2');
+
+INSERT INTO usuarios (cpf,nome,sobrenome,cargo,curso_id)
+VALUES ('102','Igor', 'Jesus','estudante','2');
+
+INSERT INTO cursos (id,nome_curso,professor,categoria)
+VALUES ('1','TI do zero', 'Pedro Brocaldi','programacao');
+
+INSERT INTO cursos (id,nome_curso,professor,categoria)
+VALUES ('2','SQL', 'Ana Beatriz','banco de dados');
+
+DELETE FROM usuarios
+WHERE cpf = '102';
+
+UPDATE usuarios SET curso_id='2'
+WHERE cpf=123
+
+
+
+SELECT * FROM usuarios
+WHERE cpf = '123';
