@@ -53,7 +53,30 @@ int registrar(){
 	fprintf(file,cargo);
 	fclose(file);
 	
-	system("pause");
+	int decisaoRegistro=0;
+				
+					printf("\n\nDeseja registrar mais um usuário?\n\n"); //inicio do menu
+					printf("\t1 - Sim\n");
+					printf("\t2 - Voltar para o menu principal\n");
+					printf("Opcao: "); //fim do menu
+	
+					scanf("%d", &decisaoRegistro);
+					system("cls"); 
+				
+					switch(decisaoRegistro){
+						case 1:
+							registrar();
+							break;
+						
+						case 2:
+							break;
+					
+						default:
+							printf("esta opcao nao esta disponivel\n");
+							system("pause");
+					}
+					
+	system("pause");	
 }
 
 int consultar(){
@@ -104,73 +127,63 @@ int main(){
 	
 	int opcao=0; //definindo variavel
 	int laco=1;
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-	for(laco=1;laco=1;){ // inicio do laco | repetir enquanto for | ++ ou -- ou vazio
-		
-		setlocale(LC_ALL, "Portuguese"); //set linguagem para aceitar caracter especial
-		
-		printf("### Cartório da EBAC ###\n\n"); //inicio do menu
-		printf("Escolha a opção desejada do menu:\n\n"); 
-		printf("\t1 - Registrar nomes \n");
-		printf("\t2 - Consultar nomes \n");
-		printf("\t3 - Deletar nomes \n"); 
-		printf("\t4 - Sair do sistema \n\n");
-		printf("Opcao: "); //fim do menu
-		
-		scanf("%d", &opcao); //armazenando a escolha do usuario
-				
-		system("cls"); //apaga mensagens anteriores
-		
-		switch(opcao){
-			case 1:
-				registrar();
-				
-				int decisaoRegistro=0;
-				
-				printf("\n\nDeseja registrar mais um usuário?\n\n"); //inicio do menu
-				printf("\t1 - Sim\n");
-				printf("\t2 - Voltar para o menu principal\n");
-				printf("Opcao: "); //fim do menu
+	printf("### Cartório da EBAC ###\n\n");
+	printf("login de administrador\n\nDigite a sua senha: ");
+	scanf("%s",senhadigitada);
 	
-				scanf("%d", &decisaoRegistro);
+	comparacao = strcmp(senhadigitada,"admin");
+	
+	if(comparacao == 0){
+		
+		system("cls");
+		for(laco=1;laco=1;){ // inicio do laco | repetir enquanto for | ++ ou -- ou vazio
+		
+			setlocale(LC_ALL, "Portuguese"); //set linguagem para aceitar caracter especial
+		
+			printf("### Cartório da EBAC ###\n\n"); //inicio do menu
+			printf("Escolha a opção desejada do menu:\n\n"); 
+			printf("\t1 - Registrar nomes \n");
+			printf("\t2 - Consultar nomes \n");
+			printf("\t3 - Deletar nomes \n"); 
+			printf("\t4 - Sair do sistema \n\n");
+			printf("Opcao: "); //fim do menu
+		
+			scanf("%d", &opcao); //armazenando a escolha do usuario
 				
-				switch(decisaoRegistro){
-					case 1:
-						registrar();
-						break;
-						
-					case 2:
-						break;
-					
-					default:
-						printf("esta opcao nao esta disponivel\n");
-						system("pause");
-				}
-				break;
+			system("cls"); //apaga mensagens anteriores
+		
+			switch(opcao){
+				case 1:
+					registrar();
+					break;
 			
-			case 2:
-				consultar();
-				break;
+				case 2:
+					consultar();
+					break;
 				
-			case 3:
-				deletar();
-				break;
+				case 3:
+					deletar();
+					break;
 			
-			case 4:
-				printf("Obrigado por utilizar o sistema!\n");
-				return 0;
-				break;
+				case 4:
+					printf("Obrigado por utilizar o sistema!\n");
+					return 0;
+					break;
 				
-			default:
-				printf("esta opcao nao esta disponivel\n");
-				system("pause");
+				default:
+					printf("esta opcao nao esta disponivel\n");
+					system("pause");
 				
+			}
+			
+			printf("\nEsse Software é de livre uso para fins didáticos\n");
+			system("cls"); 
+		
 		}
-			
-		
-		printf("\nEsse Software é de livre uso para fins didáticos\n");
-		
-		system("cls"); 
-		
 	}
+	else
+		printf("senha incorreta!");
 }
