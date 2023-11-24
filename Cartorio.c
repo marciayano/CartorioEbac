@@ -100,6 +100,7 @@ int consultar(){
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
+	fclose(file);
 	
 	system("pause");
 }
@@ -114,11 +115,13 @@ int deletar(){
 	
 	FILE *file; //entrar na biblioteca FILE e puxar os arquivos file
 	file = fopen(cpf,"r");
+	fclose(file);
 	
 	if(file == NULL){
-		printf("usuario nao encontrado.\n");
+		printf("usuario não localizado\n");
 		system("pause");
 	}
+
 	
 }
 
